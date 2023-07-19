@@ -1,5 +1,4 @@
-//ここにコントローラーを書く
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { apiClient } from 'src/utils/apiClient';
 import styles from './index.module.css';
 
@@ -10,7 +9,7 @@ const Home = () => {
   const [right, setRight] = useState<boolean>(false);
   const [down, setDown] = useState<boolean>(false);
 
-  const move = () => {
+  const move = useCallback(() => {
     if (up) {
       apiClient.handler.$post({
         body: { key: 'ArrowUp' },
@@ -33,7 +32,7 @@ const Home = () => {
     }
 
     console.log(up, left, right, down);
-  };
+  }, [up, left, right, down]);
 
   const keyDown = (event: React.MouseEvent<HTMLDivElement>) => {
     const { id } = event.target as HTMLDivElement;
@@ -68,7 +67,7 @@ const Home = () => {
       move();
     }, 100);
     return () => clearInterval(interval);
-  }, [up, left, right, down]);
+  }, [move]);
 
   return (
     <>
