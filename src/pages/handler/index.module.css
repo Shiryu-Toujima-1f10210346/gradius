@@ -1,12 +1,37 @@
+.container {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cross_key_container {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+}
+
+.up_down_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .arrowButton {
   background-color: #fff;
   border: 1px solid #ccc;
   border-radius: 4px;
   color: #333;
   cursor: pointer;
-  display: inline-block;
   font-size: 28px;
   height: 64px;
+  display: inline-block;
   line-height: 64px;
   margin: 0 5px;
   padding: 0 15px;
