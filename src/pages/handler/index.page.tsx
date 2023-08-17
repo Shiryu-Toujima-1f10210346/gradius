@@ -44,7 +44,6 @@ const Home = () => {
     console.log(`${id}down`);
     if (id === 'shoot') {
       setShoot(true);
-      shootTF(true);
     } else console.log('error');
   };
 
@@ -53,15 +52,7 @@ const Home = () => {
     console.log(`${id}up`);
     if (id === 'shoot') {
       setShoot(false);
-      shootTF(false);
     } else console.log('error');
-  };
-
-  const shootTF = async (TF: boolean) => {
-    const pos = await apiClient.handler.$get();
-    apiClient.shoot.$post({
-      body: { x: pos.x, y: pos.y, isShooting: TF },
-    });
   };
 
   useEffect(() => {
@@ -89,9 +80,18 @@ const Home = () => {
 
       console.log(up, left, right, down, shoot);
     };
+    const attack = async () => {
+      if (shoot) {
+        const res = await apiClient.handler.$get();
+        const pos = apiClient.shoot.$post({
+          body: { x: res.x, y: res.y },
+        });
+      }
+    };
 
     const interval = setInterval(() => {
       move();
+      attack();
     }, 100);
     return () => clearInterval(interval);
   }, [up, left, right, down, shoot]);
