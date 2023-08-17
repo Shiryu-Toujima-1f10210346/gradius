@@ -18,7 +18,7 @@ const Home = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       fetchPos();
-    }, 10);
+    }, 1000);
     return () => clearInterval(interval);
   }, []);
 
