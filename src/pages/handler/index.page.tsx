@@ -97,22 +97,26 @@ const Home = () => {
   }, [up, left, right, down, shoot]);
   return (
     <>
-      <div onMouseDown={keyDown} onMouseUp={keyUp}>
-        <div id="up" className={styles.arrowButton}>
-          ↑
+      <div className={styles.container}>
+        <div className={styles.cross_key_container} onMouseDown={keyDown} onMouseUp={keyUp}>
+          <div id="left" className={styles.arrowButton}>
+            ←
+          </div>
+          <div className={styles.up_down_container}>
+            <div id="up" className={styles.arrowButton}>
+              ↑
+            </div>
+            <div id="down" className={styles.arrowButton}>
+              ↓
+            </div>
+          </div>
+          <div id="right" className={styles.arrowButton}>
+            →
+          </div>
         </div>
-        <div id="left" className={styles.arrowButton}>
-          ←
+        <div id="shoot" className={styles.arrowButton} onMouseDown={shootDown} onMouseUp={shootUp}>
+          shoot
         </div>
-        <div id="right" className={styles.arrowButton}>
-          →
-        </div>
-        <div id="down" className={styles.arrowButton}>
-          ↓
-        </div>
-      </div>
-      <div id="shoot" className={styles.arrowButton} onMouseDown={shootDown} onMouseUp={shootUp}>
-        shoot
       </div>
     </>
   );
