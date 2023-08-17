@@ -35,7 +35,6 @@ const Home = () => {
       >
         <div id="key">X:{playerX}</div>
         <div id="key">Y:{playerY}</div>
-        <div id="key" />
       </div>
       <div
         id="player"
