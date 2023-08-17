@@ -6,8 +6,6 @@ export const bulletUsecase = {
   bulletPosSave: (x: number, y: number, isShootingReq: boolean) => {
     bulletUsecase.isShooting = isShootingReq;
     bulletUsecase.bulletPosList.push({ x, y });
-    bulletUsecase.bulletCount++;
-    return true;
   },
   getIsShooting: () => {
     return bulletUsecase.isShooting;
