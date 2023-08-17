@@ -1,14 +1,14 @@
 export const posUsecase = {
-  playerMove: (x: number, y: number, key: string) => {
+  playerMove: (pos: number, key: string) => {
     if (key === 'ArrowUp') {
-      y += 1;
+      pos.y -= 1;
     } else if (key === 'ArrowDown') {
-      y -= 1;
+      pos.y += 1;
     } else if (key === 'ArrowLeft') {
-      x -= 1;
+      pos.x -= 1;
     } else if (key === 'ArrowRight') {
-      x += 1;
+      pos.x += 1;
     }
-    return { x, y };
+    return pos;
   },
 };
