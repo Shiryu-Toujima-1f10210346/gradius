@@ -1,4 +1,4 @@
-# Next frourio starter
+# 学祭Project
 
 フロントエンドは src ディレクトリの [Next.js](https://nextjs.org/) 、バックエンドは server ディレクトリの [frourio](https://frourio.com/) で構築された TypeScript で一気通貫開発が可能なモノレポサービス
 
@@ -8,7 +8,6 @@
 
 ローカルマシンに直接インストールする
 
-hogehoge
 
 https://nodejs.org/ja/ の左ボタン、LTS をダウンロードしてインストール
 
@@ -16,7 +15,7 @@ https://nodejs.org/ja/ の左ボタン、LTS をダウンロードしてイン�
 
 フロントとバックエンドそれぞれに package.json があるので 2 回インストールが必要
 
-````sh
+```sh
 $ npm i
 $ npm i --prefix server
 ``` aytbunbun
@@ -28,8 +27,7 @@ $ cp .env.example .env
 $ cp server/.env.example server/.env
 $ cp docker/dev/.env.example docker/dev/.env
 $ cp server/prisma/.env.example server/prisma/.env
-````
-
+```
 ### ミドルウェアのセットアップ
 
 ```sh
