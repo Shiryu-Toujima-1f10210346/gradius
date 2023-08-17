@@ -8,7 +8,7 @@ export type AdditionalRequest = {
 
 const options: CookieSerializeOptions = {
   httpOnly: true,
-  secure: false,
+  secure: true,
   path: '/',
   sameSite: 'none',
 };
@@ -36,7 +36,7 @@ export default defineController(() => ({
     hooks: {
       preHandler: async (req, reply) => {
         const auth = firebaseAdmin.auth();
-        const sessionId = req.cookies.session || '';
+        const sessionId = req.cookies.session ?? '';
         const decodedClaims = await auth.verifySessionCookie(sessionId).catch(() => null);
 
         if (decodedClaims) await auth.revokeRefreshTokens(decodedClaims.sub);
