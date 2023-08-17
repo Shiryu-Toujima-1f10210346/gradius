@@ -5,6 +5,7 @@ import { apiClient } from 'src/utils/apiClient';
 const Home = () => {
   const [playerX, setPlayerX] = useState(0);
   const [playerY, setPlayerY] = useState(0);
+  // useEffect(() => {}, []);
   const hoge = true;
 
   useEffect(() => {
@@ -14,12 +15,6 @@ const Home = () => {
       setPlayerY(res.y);
       console.log('fetchPos');
     };
-
-    const fetchShoot = async () => {
-      const res = await apiClient.shoot.$get();
-      console.log(res);
-    };
-
     const interval = setInterval(() => {
       fetchPos();
     }, 100);
@@ -33,6 +28,7 @@ const Home = () => {
       <div className="container">
         <div id="key">X:{playerX}</div>
         <div id="key">Y:{playerY}</div>
+        <div id="key" />
       </div>
       <div
         id="player"
