@@ -127,7 +127,6 @@ const Home = () => {
     };
 
     const fetchShoot = async () => {
-      console.log('fetchShoot');
       const res = await apiClient.shoot.$get();
       if (res) {
         console.log('shoot');
@@ -141,7 +140,7 @@ const Home = () => {
 
     const interval2 = setInterval(() => {
       fetchShoot();
-    }, 100);
+    }, 300);
 
     return () => {
       clearInterval(interval);

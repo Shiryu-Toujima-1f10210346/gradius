@@ -1,18 +1,13 @@
 export const bulletUsecase = {
   isShooting: false,
-  lastShotTime: 0,
+  //xとyを保存するリスト
   bulletCount: 0,
   bulletPosList: [] as { x: number; y: number }[],
   bulletPosSave: (x: number, y: number, isShootingReq: boolean) => {
-    const currentTime = Date.now();
-    if (!isShootingReq && currentTime - bulletUsecase.lastShotTime > 300) {
-      bulletUsecase.isShooting = false;
-      bulletUsecase.lastShotTime = currentTime;
-    } else if (isShootingReq) {
-      bulletUsecase.isShooting = true;
-    }
+    bulletUsecase.isShooting = isShootingReq;
     bulletUsecase.bulletPosList.push({ x, y });
     bulletUsecase.bulletCount++;
+    return true;
   },
   getIsShooting: () => {
     return bulletUsecase.isShooting;
