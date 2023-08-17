@@ -14,8 +14,7 @@ const Home = () => {
     console.log(e);
     console.log(e.code);
     const playerPos = await apiClient.handler.$post({
-      //keyがtypecheckエラーの原因でした
-      body: { x: playerX, y: playerY },
+      body: { key: e.code },
     });
     setPlayerX(playerPos.x);
     setPlayerY(playerPos.y);
